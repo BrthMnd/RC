@@ -39,6 +39,21 @@ app.get('/propietario', (req, res) => {
 })
 
 
+app.get('/propietario/:Id_propietario', (req, res) => {
+    const Id_propietario = req.params.Id_propietario
+    const sql = `SELECT * FROM propietario WHERE Id_propietario = ${Id_propietario}`
+    
+    conexion.query(sql, (error, results) => {
+        if (error) throw error
+        if (results.length > 0) {
+            res.json(results)
+        } else {
+            res.send('No hay datos')
+        }
+    })
+})
+
+
 app.post('/propietario', (req, res) => {
     const sql = 'INSERT INTO propietario SET ?'
     const Arreglo = { Id_propietario, Numero_Identificacion_D, Nombres, Apellidos, TelefonoUCelular } = req.body
