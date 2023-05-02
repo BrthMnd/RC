@@ -14,6 +14,22 @@ router.get("/", (req, res) => {
   });
 });
 
+//get2
+
+router.get('/:id_inmuebles', (req, res) => {
+  const id_inmuebles = req.params.id_inmuebles
+  const sql = `SELECT * FROM inmuebles WHERE id = ${id_inmuebles}`
+
+  mysql.query(sql, (error, results) => {
+      if (error) throw error
+      if (results.length > 0) {
+          res.json(results)
+      } else {
+          res.send('No hay datos')
+      }
+  })
+})
+
 // Insertar un nuevo registro.
 router.post("/inmuebles", (req, res) => {
   const { direccion, tipo, precio } = req.body;
