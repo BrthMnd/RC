@@ -1,0 +1,14 @@
+<%- include("templates/Header.ejs") %>
+    <div>
+        <% resd.forEach(element=> { %>
+            <h1>
+                <%= element.inmueble %>
+            </h1>
+            <p>
+                <%= element.descripcion %>
+            </p>
+            <% }) %>
+
+    </div>
+
+    <%- include("templates/footer.ejs") %>

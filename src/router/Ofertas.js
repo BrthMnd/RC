@@ -2,16 +2,21 @@ const express = require('express');
 const routes = express.Router()
 const mysql = require('../BD/db');
 
-routes.get('/', (req, res) => {
+routes.get('/', async (req, res) => {
     const sql = 'SELECT * FROM ofertas'
-    mysql.query(sql, (error, results) => {
+
+    const ofer = await mysql.query(sql, (error, results) => {
         if (error) throw error
         if (results.length > 0) {
-            res.json(results)
+
+            res.render("oferta", {
+                resd: results,
+            })
         } else {
             res.send('No hay datos')
         }
-    })
+    }
+    )
 })
 
 

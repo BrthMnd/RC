@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 260px;
+    background-color: rgb(37, 37, 37);
+}
+
+.sidebar .logo__details {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+
+}
+
+.sidebar .logo__details i {
+    font-size: 30px;
+    color: white;
+    height: 50px;
+    justify-self: center;
+    align-self: center;
+    min-width: 78px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.sidebar .logo__details .logo__name {
+    font-size: 22px;
+    color: white;
+    font-weight: 600;
+
+}
+
+.sidebar .routes__pages {
+    /* background-color: red; */
+    height: 100%;
+    padding-top: 30px;
+
+    & .list__styleBar {
+        list-style: none;
+        position: relative;
+        /* background-color: blue; */
+        transition: 1s;
+
+        & div a {
+            text-decoration: none;
+            color: white;
+
+            & .link__a {
+                font-size: 18px;
+                font-weight: 400;
+
+            }
+
+            & i {
+                /* background-color: black; */
+                height: 50px;
+                min-width: 78px;
+                text-align: center;
+                line-height: 50px;
+                color: white;
+
+            }
+        }
+    }
+
+    & .list__styleBar:hover {
+        transition: 0.5s;
+        background-color: rgba(255, 255, 255, 0.404);
+    }
+}
+
+.sidebar.close~.home__section {
+    left: 78px;
+    width: calc(100% - 78px);
+    height: max-content;
+
+}
+
+.home__section {
+    height: max-content;
+    transition: 0.5s;
+    position: absolute;
+    background-color: rgb(204, 204, 204);
+    width: calc(100% - 260px);
+    left: 260px;
+
+    /* home content es el navbar */
+    & .home__content {
+        background-color: rgba(37, 37, 37, 0.575);
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.473);
+        height: 60px;
+        display: flex;
+        align-items: center;
+
+        & i {
+            color: black;
+            font-size: 35px;
+            margin-left: 25px;
+            cursor: pointer;
+        }
+    }
+}
